@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keyko Adriana — Terapeuta Holística · Mary Kay</title>
+<meta name="description" content="Directora Mary Kay | Terapeuta Holística | León, Gto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F3EE;
+    --warm-white: #FDFAF7;
+    --terracotta: #C17F5A;
+    --terracotta-light: #D9A07A;
+    --terracotta-dark: #9A5E3A;
+    --sage: #8A9E8C;
+    --sage-light: #B8CABC;
+    --deep: #2C2420;
+    --mid: #6B5A52;
+    --light: #B8A99E;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.25rem;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: -40%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(193,127,90,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: -30%;
+    left: -15%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(138,158,140,0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .profile {
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .avatar-ring {
+    width: 108px;
+    height: 108px;
+    border-radius: 50%;
+    margin: 0 auto 1.25rem;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--terracotta), var(--sage));
+    position: relative;
+  }
+
+  .avatar-ring img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--cream);
+    display: block;
+  }
+
+  .avatar-initials {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--cream);
+    border: 3px solid var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--terracotta);
+    letter-spacing: 0.05em;
+  }
+
+  .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--deep);
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    margin-bottom: 0.35rem;
+  }
+
+  .name em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .handle {
+    font-size: 0.8rem;
+    color: var(--light);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.85rem;
+  }
+
+  .tagline {
+    font-size: 0.92rem;
+    color: var(--mid);
+    line-height: 1.6;
+    font-weight: 300;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 1.5rem 0;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+
+  .divider::before,
+  .divider::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: linear-gradient(to right, transparent, var(--sage-light), transparent);
+  }
+
+  .divider span {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-weight: 400;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .link-btn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .link-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    border-radius: 14px;
+  }
+
+  .link-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .link-btn:hover::before { opacity: 1; }
+
+  .link-btn:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  .btn-primary {
+    background: var(--deep);
+    color: var(--cream);
+    animation-delay: 0.2s;
+  }
+
+  .btn-primary::before {
+    background: rgba(255,255,255,0.05);
+  }
+
+  .btn-terapia {
+    background: var(--warm-white);
+    border: 1px solid rgba(193,127,90,0.25);
+    color: var(--deep);
+    animation-delay: 0.3s;
+  }
+
+  .btn-terapia::before {
+    background: rgba(193,127,90,0.06);
+  }
+
+  .btn-mary {
+    background: var(--warm-white);
+    border: 1px solid rgba(138,158,140,0.3);
+    color: var(--deep);
+    animation-delay: 0.4s;
+  }
+
+  .btn-mary::before {
+    background: rgba(138,158,140,0.06);
+  }
+
+  .btn-sagrada {
+    background: var(--warm-white);
+    border: 1px solid rgba(193,127,90,0.2);
+    color: var(--deep);
+    animation-delay: 0.5s;
+  }
+
+  .btn-sagrada::before {
+    background: rgba(193,127,90,0.05);
+  }
+
+  .btn-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+  }
+
+  .btn-primary .btn-icon {
+    background: rgba(255,255,255,0.1);
+  }
+
+  .btn-terapia .btn-icon {
+    background: rgba(193,127,90,0.1);
+  }
+
+  .btn-mary .btn-icon {
+    background: rgba(138,158,140,0.12);
+  }
+
+  .btn-sagrada .btn-icon {
+    background: rgba(193,127,90,0.08);
+  }
+
+  .btn-text {
+    flex: 1;
+  }
+
+  .btn-title {
+    font-size: 0.88rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 2px;
+  }
+
+  .btn-primary .btn-title { color: var(--cream); }
+  .btn-terapia .btn-title { color: var(--deep); }
+  .btn-mary .btn-title { color: var(--deep); }
+  .btn-sagrada .btn-title { color: var(--deep); }
+
+  .btn-sub {
+    font-size: 0.75rem;
+    font-weight: 300;
+    opacity: 0.65;
+  }
+
+  .btn-arrow {
+    font-size: 0.9rem;
+    opacity: 0.4;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .link-btn:hover .btn-arrow {
+    opacity: 0.8;
+    transform: translateX(3px);
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 2rem;
+    animation: fadeUp 0.7s 0.6s ease both;
+  }
+
+  .footer-location {
+    font-size: 0.75rem;
+    color: var(--light);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-ig {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.78rem;
+    color: var(--terracotta);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+
+  .footer-ig:hover { opacity: 1; }
+
+  .ornament {
+    text-align: center;
+    margin: 1.25rem 0 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--sage-light);
+    font-style: italic;
+    font-weight: 300;
+    animation: fadeUp 0.7s 0.65s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 380px) {
+    .name { font-size: 1.7rem; }
+    .link-btn { padding: 0.875rem 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="profile">
+    <div class="avatar-ring">
+      <div class="avatar-initials">KA</div>
+    </div>
+    <h1 class="name">Keyko <em>Adriana</em><br>Serrano Sashida</h1>
+    <p class="handle">@keyko.adriana · León, Gto.</p>
+    <p class="tagline">Directora Mary Kay · Terapeuta Holística<br>Ayudo mujeres a crecer en negocio y consciencia</p>
+  </div>
+
+  <div class="divider"><span>por aquí empieza todo</span></div>
+
+  <div class="links">
+
+    <a class="link-btn btn-primary"
+       href="https://wa.me/524771305320?text=Hola%20Keyko%2C%20quiero%20información%20sobre%20sesiones%20holísticas"
+       target="_blank" rel="noopener">
+      <div class="btn-icon">✦</div>
+      <div class="btn-text">
+        <div class="btn-title">Quiero una sesión holística</div>
+        <div class="btn-sub">Pandora Star</div>
+      </div>
+      <span class="btn-arrow">→</span>
+    </a>
+
+    <a class="link-btn btn-terapia"
+       href="https://wa.me/524771305320?text=Hola%20Keyko%2C%20me%20interesa%20conocer%20los%20próximos%20talleres%20y%20eventos"
+       target="_blank" rel="noopener">
+      <div class="btn-icon">◈</div>
+      <div class="btn-text">
+        <div class="btn-title">Talleres y eventos SAGRADAmente</div>
+        <div class="btn-sub">Círculos de mujeres · Bazares holísticos · Experiencias</div>
+      </div>
+      <span class="btn-arrow">→</span>
+    </a>
+
+    <a class="link-btn btn-mary"
+       href="https://www.marykay.com.mx/kserranosashida"
+       target="_blank" rel="noopener">
+      <div class="btn-icon">◇</div>
+      <div class="btn-text">
+        <div class="btn-title">Quiero cuidar mi piel con Mary Kay</div>
+        <div class="btn-sub">Skincare · Maquillaje · Belleza consciente</div>
+      </div>
+      <span class="btn-arrow">→</span>
+    </a>
+
+    <a class="link-btn btn-sagrada"
+       href="https://wa.me/524771305320?text=Hola%20Keyko%2C%20me%20interesa%20unirme%20al%20club%20de%20lectura%20Amorletrancia"
+       target="_blank" rel="noopener">
+      <div class="btn-icon">○</div>
+      <div class="btn-text">
+        <div class="btn-title">Únete a Amorletrancia</div>
+        <div class="btn-sub">Club de lectura · Lunes a viernes 6 am · Desde 2020</div>
+      </div>
+      <span class="btn-arrow">→</span>
+    </a>
+
+    <a class="link-btn btn-terapia"
+       href="https://agreements.marykayintouch.com.mx/r/c7oj36jl"
+       target="_blank" rel="noopener">
+      <div class="btn-icon">◆</div>
+      <div class="btn-text">
+        <div class="btn-title">Únete a mi equipo Mary Kay</div>
+        <div class="btn-sub">Emprende · Crece · Transforma tu vida</div>
+      </div>
+      <span class="btn-arrow">→</span>
+    </a>
+
+  </div>
+
+  <div class="footer">
+    <p class="footer-location">León, Guanajuato · México</p>
+    <a class="footer-ig" href="https://instagram.com/keyko.adriana" target="_blank" rel="noopener">
+      ✦ @keyko.adriana
+    </a>
+  </div>
+
+  <p class="ornament">✦ SAGRADAmente ✦</p>
+
+</div>
+
+</body>
+</html>
